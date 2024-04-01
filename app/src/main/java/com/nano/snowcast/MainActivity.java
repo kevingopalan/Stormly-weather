@@ -81,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
 
-                assert response.body() != null;
-                tempText.setText(String.format("%sº", response.body().getMain().getTemp()));
-                tempText2.setText(String.format("%sº", response.body().getMain().getTemp()));
-                descText.setText(String.format("Feels like %sº", response.body().getMain().getFeels_like()));
-                humidityText.setText(String.format("Humidity: %s%%", response.body().getMain().getHumidity()));
-
+                if (response.body() != null) {
+                    tempText.setText(String.format("%sº", response.body().getMain().getTemp()));
+                    tempText2.setText(String.format("%sº", response.body().getMain().getTemp()));
+                    descText.setText(String.format("Feels like %sº", response.body().getMain().getFeels_like()));
+                    humidityText.setText(String.format("Humidity: %s%%", response.body().getMain().getHumidity()));
+                }
             }
 
             @Override
