@@ -19,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.nano.snowcast.Retrofit.ApiClient;
 import com.nano.snowcast.Retrofit.ApiInterface;
+import com.nano.snowcast.Retrofit.ForecastExample;
 import com.nano.snowcast.Retrofit.ForecastInterface;
 import com.nano.snowcast.Retrofit.Example;
 import com.nano.snowcast.databinding.ActivityMainBinding;
@@ -98,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
     // Forecast function (having a little trouble with this because everything is in a list for forecast gson)
     private void getForecastData(String name){
         ForecastInterface apiInterface = ApiClient.getClient().create(ForecastInterface.class);
-        Call<Example> call = apiInterface.getWeatherData(name);
-        call.enqueue(new Callback<Example>() {
+        Call<ForecastExample> call = apiInterface.getWeatherData(name);
+        call.enqueue(new Callback<ForecastExample>() {
             @Override
-            public void onResponse(Call<Example> call, Response<Example> response) {
+            public void onResponse(Call<ForecastExample> call, Response<ForecastExample> response) {
 
                 assert response.body() != null;
                 temp1text.setText(String.format("%sº", response.body().getMain().getTemp()));
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Example> call, Throwable t) {
+            public void onFailure(Call<ForecastExample> call, Throwable t) {
 
             }
         });
