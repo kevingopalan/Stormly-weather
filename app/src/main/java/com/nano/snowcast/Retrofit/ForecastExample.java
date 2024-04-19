@@ -2,15 +2,14 @@ package com.nano.snowcast.Retrofit;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ForecastExample {
-    @SerializedName("main")
-    private Main main;
+    @SerializedName("list")
+    private List<Weather> weatherList;
 
-    public Main getMain() {
-        return main;
-    }
 
-    public void setMain(Main main) {
-        this.main = main;
-    }
+    public List<Weather> getWeatherList() { return weatherList; }
+
+    public void setWeatherList(List<Weather> weatherList) { this.weatherList = weatherList; }
 }

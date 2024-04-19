@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // calling api
                 getWeatherData(textField.getText().toString().trim());
+                getForecastData(textField.getText().toString().trim());
             }
         });
     }
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ForecastExample> call, Response<ForecastExample> response) {
 
                 assert response.body() != null;
-                temp1text.setText(String.format("%sº", response.body().getMain().getTemp()));
+                temp1text.setText(response.body().getWeatherList().get(0).getDescription());
 
             }
 
