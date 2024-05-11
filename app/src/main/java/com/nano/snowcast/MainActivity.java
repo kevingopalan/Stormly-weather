@@ -106,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ForecastExample> call, Response<ForecastExample> response) {
 
                 assert response.body() != null;
-                temp1text.setText(response.body().getWeatherList().get(0).getDescription());
+                temp1text.setText(String.format(response.body().getWeatherList().get(0).getDescription()));
+                Log.d("DATA", response.body().getWeatherList().get(0).getDescription());
 
             }
 
