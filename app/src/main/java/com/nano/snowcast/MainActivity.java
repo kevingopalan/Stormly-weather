@@ -1,5 +1,7 @@
 package com.nano.snowcast;
 
+import static android.widget.Toast.makeText;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,12 +69,14 @@ public class MainActivity extends AppCompatActivity {
         descText = findViewById(R.id.text_desc);
         humidityText = findViewById(R.id.text_humidity);
         textField = findViewById(R.id.text_search);
+        CharSequence toasttext = "I am rewriting the forecast code, just wait";
+        int duration = Toast.LENGTH_SHORT;
+        Toast wiptoast = Toast.makeText(this, toasttext, duration);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // calling api
-                getWeatherData(textField.getText().toString().trim());
-                getForecastData(textField.getText().toString().trim());
+                wiptoast.show();
             }
         });
     }
